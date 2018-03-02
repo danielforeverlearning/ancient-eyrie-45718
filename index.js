@@ -102,13 +102,13 @@ function MTGO_performRequest(endpoint, method, data, success) {
 
     res.on('data', function(data) {
       responseString += data;
+
+      res.write("dogoneexit");
     });
 
     res.on('end', function() {
       console.log("oh wow got to end event yay");
       console.log(responseString);
-
-      req.write('dude');
 
       //var responseObject = JSON.parse(responseString);
       //success(responseObject);
