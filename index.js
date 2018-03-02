@@ -119,7 +119,7 @@ function MTGO_performRequest(endpoint, method, data, success) {
 
 function MTGO_getCards() {
   MTGO_performRequest('/v1/cards', 'GET', {
-    name: 'nicol bolas',
+    name: 'cabal slaver',
   }, function(data) {
     console.log('Fetched MTGO cards');
   });
