@@ -136,6 +136,10 @@ function MTGO_getCards() {
   });
 }
 
+
+
+
+
 var savestr = '';
 
 function battleaxe(res) {
@@ -153,8 +157,6 @@ function battleaxe(res) {
       
     });
 }
-
-
 
 http.createServer(function(req,res) {
   
@@ -175,6 +177,7 @@ http.createServer(function(req,res) {
 
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('whatwhat');
+  res.write(savestr);
   res.end();
 }).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
 
