@@ -136,9 +136,36 @@ function MTGO_getCards() {
   });
 }
 
+
+
 http.createServer(function(req,res) {
 
-  MTGO_getCards();
+  var endpoint = '/v1/cards?' + querystring.stringify('cabal slaver');
+  var headers  = {};
+
+  var options = {
+    host:   MTGO_host,
+    path:   endpoint,
+    method: 'GET',
+    headers: headers
+  };
+
+  var mtgoreq = https.request(options, function(res) {
+    res.setEncoding('utf-8');
+
+    var responseString = '';
+
+    res.on('data', function(data) {
+      responseString += data;
+    });
+
+    res.on('end', function() {
+      console.log("holy sheep shit");
+      console.log(responseString);
+    });
+  });
+  mtgoreq.write(dataString);
+  mtgoreq.end();
 
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('whatwhat');
