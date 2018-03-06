@@ -141,6 +141,7 @@ function MTGO_getCards() {
 
 
 var savestr = '';
+var saveres;
 
 function savemydata(data) {
     savestr += data;
@@ -149,6 +150,7 @@ function savemydata(data) {
 function endbattleaxe() {
     console.log("inside endbattleaxe");
     console.log(savestr);
+    saveres.write("<p>" + savestr + "</p>");
 }
 
 function battleaxe(res) {
@@ -173,14 +175,21 @@ function stupidbaloney(req,res) {
     headers: headers
   };
 
+  //ok i think i get it ...... async call to https.request.....
+  //no wait for return.....
+  //straight to write dogdog
+  //which has not been filled yet
+  //that is why so confusing
+
+  saveres = res;
+
   var mtgoreq = https.request(options, battleaxe);
   mtgoreq.write("");
   mtgoreq.end();
 
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('dogdog');
-  res.write(savestr);
-  res.end();
+  res.write('wait for 3rd party api call to mtgo to complete .....');
 }
 
 http.createServer(stupidbaloney).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
