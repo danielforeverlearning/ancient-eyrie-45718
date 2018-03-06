@@ -132,7 +132,7 @@ function MTGO_getCards() {
   }, function(data) {
     console.log('Fetched MTGO cards');
     myresultstr = data;
-    console.log(myresultstr);
+    //console.log(myresultstr);
   });
 
   return myresultstr;
@@ -140,9 +140,10 @@ function MTGO_getCards() {
 
 http.createServer(function(req,res) {
   var bigstr = MTGO_getCards();
+  console.log('printing bigstr');
+  console.log(bigstr);
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('whatwhat');
-  res.write(bigstr);
   res.end();
 }).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
 
