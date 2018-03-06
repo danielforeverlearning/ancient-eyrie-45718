@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://git.heroku.com/ancient-eyrie-45718.git"
   },
-  "keywords": [],
+  "keywords": [ "heroku" ],
   "author": "",
   "license": "ISC",
   "dependencies": {

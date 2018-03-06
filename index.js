@@ -102,8 +102,6 @@ function MTGO_performRequest(endpoint, method, data, success) {
 
     res.on('data', function(data) {
       responseString += data;
-
-      res.write("dogoneexit");
     });
 
     res.on('end', function() {
