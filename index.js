@@ -140,7 +140,7 @@ function MTGO_getCards() {
 
 http.createServer(function(req,res) {
 
-  var dataString = JSON.stringify( {name:'cabal slaver'} );
+  var dataString = JSON.stringify( { name:'cabal slaver' } );
   var endpoint = '/v1/cards?' + querystring.stringify('cabal slaver');
   var headers  = {};
 
