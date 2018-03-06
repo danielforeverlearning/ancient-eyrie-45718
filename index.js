@@ -132,8 +132,10 @@ function MTGO_getCards() {
   }, function(data) {
     console.log('Fetched MTGO cards');
     myresultstr = data;
-    //console.log(myresultstr);
   });
+
+  console.log('printing myresultstr');
+  console.log(myresultstr);
 
   return myresultstr;
 }
