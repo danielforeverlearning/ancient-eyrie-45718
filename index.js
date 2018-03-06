@@ -142,19 +142,19 @@ function MTGO_getCards() {
 
 var savestr = '';
 
+function savemydata(data) {
+    savestr += data;
+}
+
 function battleaxe(res) {
     console.log("inside battleaxe");
 
     res.setEncoding('utf-8');
 
-    res.on('data', function(data) {
-      savestr += data;
-    });
+    res.on('data', savemydata);
 
     res.on('end', function() {
-      console.log("let us see what savestr is");
-      console.log(savestr);
-      
+      console.log("end of battleaxe");
     });
 }
 
