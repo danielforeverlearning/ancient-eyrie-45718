@@ -158,8 +158,7 @@ function battleaxe(res) {
     });
 }
 
-http.createServer(function(req,res) {
-  
+function stupidbaloney(req,res) {
   var data       = { name: 'cabal slaver', };
   var endpoint = '/v1/cards?' + querystring.stringify(data);
   var headers  = {};
@@ -176,8 +175,10 @@ http.createServer(function(req,res) {
   mtgoreq.end();
 
   res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write('whatwhat');
+  res.write('dogdog');
   res.write(savestr);
   res.end();
-}).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
+}
 
+http.createServer(stupidbaloney).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
+  
