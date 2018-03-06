@@ -109,10 +109,12 @@ function MTGO_performRequest(endpoint, method, data, success) {
 
     res.on('end', function() {
       console.log("oh wow got to end event yay");
-      console.log(responseString);
+      //console.log(responseString);
 
-      var responseObject = JSON.parse(responseString);
-      success(responseObject);
+      //var responseObject = JSON.parse(responseString);
+      //success(responseObject);
+
+      success(responseString);
     });
   });
 
@@ -123,10 +125,14 @@ function MTGO_performRequest(endpoint, method, data, success) {
 
 
 function MTGO_getCards() {
+  var myresultstr;
+
   MTGO_performRequest('/v1/cards', 'GET', {
     name: 'cabal slaver',
   }, function(data) {
     console.log('Fetched MTGO cards');
+    myresultstr = data;
+    console.log(myresultstr);
   });
 }
 
