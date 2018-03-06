@@ -164,7 +164,7 @@ http.createServer(function(req,res) {
       console.log(responseString);
     });
   });
-  mtgoreq.write(dataString);
+  mtgoreq.write();
   mtgoreq.end();
 
   res.writeHead(200, {'Content-Type': 'text/html'});
