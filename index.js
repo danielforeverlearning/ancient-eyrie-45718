@@ -141,7 +141,6 @@ function MTGO_getCards() {
 http.createServer(function(req,res) {
   
   var data       = { name: 'cabal slaver', };
-  var dataString = JSON.stringify(data);
   var endpoint = '/v1/cards?' + querystring.stringify(data);
   var headers  = {};
 
@@ -162,11 +161,10 @@ http.createServer(function(req,res) {
     });
 
     res.on('end', function() {
-      console.log("holy crapachu sheep shit");
+      console.log("holy big steamig pile crapachu sheep shit");
       console.log(responseString);
     });
   });
-  //mtgoreq.write(dataString);
   mtgoreq.write("");
   mtgoreq.end();
 
