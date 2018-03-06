@@ -1,14 +1,17 @@
 var querystring = require('querystring');
-var https = require('https');
+var http        = require('http');
+var https       = require('https');
 
-var host = 'www.thegamecrafter.com';
-var username = 'JonBob';
-var password = '*****';
-var apiKey = '*****';
-var sessionId = null;
-var deckId = '68DC5A20-EE4F-11E2-A00C-0858C0D5C2ED';
+const PORT      = process.env.PORT || 5000;
 
-var MTGO_host = 'api.magicthegathering.io';
+var host        = 'www.thegamecrafter.com';
+var username    = 'JonBob';
+var password    = '*****';
+var apiKey      = '*****';
+var sessionId   = null;
+var deckId      = '68DC5A20-EE4F-11E2-A00C-0858C0D5C2ED';
+
+var MTGO_host   = 'api.magicthegathering.io';
 
 
 function performRequest(endpoint, method, data, success) {
@@ -127,5 +130,12 @@ function MTGO_getCards() {
   });
 }
 
+http.createServer(function(req,res) {
+  MTGO_getCards();
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write('whatwhat');
+  res.end();
+}).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
 
-MTGO_getCards();
+
+
