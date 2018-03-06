@@ -143,6 +143,7 @@ http.createServer(function(req,res) {
   var data       = { name: 'cabal slaver', };
   var endpoint = '/v1/cards?' + querystring.stringify(data);
   var headers  = {};
+  var responseString = '';
 
   var options = {
     host:   MTGO_host,
@@ -153,8 +154,6 @@ http.createServer(function(req,res) {
 
   var mtgoreq = https.request(options, function(res) {
     res.setEncoding('utf-8');
-
-    var responseString = '';
 
     res.on('data', function(data) {
       responseString += data;
@@ -170,6 +169,7 @@ http.createServer(function(req,res) {
 
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('whatwhat');
+  res.write(responseString);
   res.end();
 }).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
 
