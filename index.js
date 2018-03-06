@@ -149,7 +149,6 @@ function battleaxe(res) {
 
     res.on('end', function() {
       console.log("holy big pile of sheep shit");
-      console.log(responseString);
     });
 }
 
