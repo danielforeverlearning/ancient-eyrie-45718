@@ -85,12 +85,14 @@ function MTGO_performRequest(endpoint, method, data, success) {
   if (method == 'GET') {
     endpoint += '?' + querystring.stringify(data);
   }
-  else {
-    headers = {
-      'Content-Type': 'application/json',
-      'Content-Length': dataString.length
-    };
-  }
+
+//  else {
+//    headers = {
+//      'Content-Type': 'application/json',
+//      'Content-Length': dataString.length
+//    };
+//  }
+
   var options = {
     host: MTGO_host,
     path: endpoint,
@@ -109,7 +111,7 @@ function MTGO_performRequest(endpoint, method, data, success) {
 
     res.on('end', function() {
       console.log("oh wow got to end event yay");
-      //console.log(responseString);
+      console.log(responseString);
 
       //var responseObject = JSON.parse(responseString);
       //success(responseObject);
@@ -129,13 +131,14 @@ function MTGO_getCards() {
   MTGO_performRequest('/v1/cards', 'GET', {
     name: 'cabal slaver',
   }, function(data) {
-    console.log('Fetched MTGO cards');
-    console.log(data);
+    console.log('Fetched MTGO cards into variable data');
   });
 }
 
 http.createServer(function(req,res) {
+
   MTGO_getCards();
+
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('whatwhat');
   res.end();
