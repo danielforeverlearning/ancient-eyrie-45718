@@ -136,7 +136,7 @@ function MTGO_getCards() {
   });
 }
 
-var responseString;
+var savestr = '';
 
 function battleaxe(res) {
     console.log("inside battleaxe");
@@ -144,11 +144,13 @@ function battleaxe(res) {
     res.setEncoding('utf-8');
 
     res.on('data', function(data) {
-      responseString += data;
+      savestr += data;
     });
 
     res.on('end', function() {
-      console.log("holy big pile of sheep shit");
+      console.log("let us see what savestr is");
+      console.log(savestr);
+      
     });
 }
 
