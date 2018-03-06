@@ -130,14 +130,12 @@ function MTGO_getCards() {
     name: 'cabal slaver',
   }, function(data) {
     console.log('Fetched MTGO cards');
-    return data;
+    console.log(data);
   });
 }
 
 http.createServer(function(req,res) {
-  var bigstr = MTGO_getCards();
-  console.log('printing bigstr');
-  console.log(bigstr);
+  MTGO_getCards();
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('whatwhat');
   res.end();
