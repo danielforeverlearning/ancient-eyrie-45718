@@ -125,19 +125,13 @@ function MTGO_performRequest(endpoint, method, data, success) {
 
 
 function MTGO_getCards() {
-  var myresultstr;
 
   MTGO_performRequest('/v1/cards', 'GET', {
     name: 'cabal slaver',
   }, function(data) {
     console.log('Fetched MTGO cards');
-    myresultstr = data;
+    return data;
   });
-
-  console.log('printing myresultstr');
-  console.log(myresultstr);
-
-  return myresultstr;
 }
 
 http.createServer(function(req,res) {
