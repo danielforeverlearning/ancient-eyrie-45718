@@ -144,7 +144,10 @@ var savestr = '';
 
 function savemydata(data) {
     savestr += data;
-    console.log('printing savestr inside savemydata');
+}
+
+function endbattleaxe() {
+    console.log("inside endbattleaxe");
     console.log(savestr);
 }
 
@@ -155,9 +158,7 @@ function battleaxe(res) {
 
     res.on('data', savemydata);
 
-    res.on('end', function() {
-      console.log("end of battleaxe");
-    });
+    res.on('end', endbattleaxe);
 }
 
 function stupidbaloney(req,res) {
