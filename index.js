@@ -134,12 +134,15 @@ function MTGO_getCards() {
     myresultstr = data;
     console.log(myresultstr);
   });
+
+  return myresultstr;
 }
 
 http.createServer(function(req,res) {
-  MTGO_getCards();
+  var bigstr = MTGO_getCards();
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('whatwhat');
+  res.write(bigstr);
   res.end();
 }).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
 
