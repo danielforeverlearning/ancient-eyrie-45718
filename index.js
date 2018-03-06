@@ -162,11 +162,12 @@ http.createServer(function(req,res) {
     });
 
     res.on('end', function() {
-      console.log("holy sheep shit");
+      console.log("holy crapachu sheep shit");
       console.log(responseString);
     });
   });
-  mtgoreq.write(dataString);
+  //mtgoreq.write(dataString);
+  mtgoreq.write("");
   mtgoreq.end();
 
   res.writeHead(200, {'Content-Type': 'text/html'});
