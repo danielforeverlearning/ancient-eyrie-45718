@@ -144,6 +144,8 @@ var savestr = '';
 
 function savemydata(data) {
     savestr += data;
+    console.log('printing savestr inside savemydata');
+    console.log(savestr);
 }
 
 function battleaxe(res) {
