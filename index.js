@@ -152,8 +152,8 @@ function battleaxe(res) {
     });
 
     res.on('end', function() {
-      //console.log("let us see what savestr is");
-      //console.log(savestr);
+      console.log("let us see what savestr is");
+      console.log(savestr);
       
     });
 }
