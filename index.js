@@ -136,6 +136,23 @@ function MTGO_getCards() {
   });
 }
 
+var responseString;
+
+function battleaxe(res) {
+    console.log("inside battleaxe");
+
+    res.setEncoding('utf-8');
+
+    res.on('data', function(data) {
+      responseString += data;
+    });
+
+    res.on('end', function() {
+      console.log("holy big pile of sheep shit");
+      console.log(responseString);
+    });
+}
+
 
 
 http.createServer(function(req,res) {
@@ -143,7 +160,6 @@ http.createServer(function(req,res) {
   var data       = { name: 'cabal slaver', };
   var endpoint = '/v1/cards?' + querystring.stringify(data);
   var headers  = {};
-  var responseString = '';
 
   var options = {
     host:   MTGO_host,
@@ -152,26 +168,12 @@ http.createServer(function(req,res) {
     headers: headers
   };
 
-  var mtgoreq = https.request(options, function(res) {
-    res.setEncoding('utf-8');
-
-    res.on('data', function(data) {
-      responseString += data;
-    });
-
-    res.on('end', function() {
-      console.log("holy big steamig pile crapachu sheep shit");
-      console.log(responseString);
-    });
-  });
+  var mtgoreq = https.request(options, battleaxe);
   mtgoreq.write("");
   mtgoreq.end();
 
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('whatwhat');
-  res.write(responseString);
   res.end();
 }).listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
-
-
 
