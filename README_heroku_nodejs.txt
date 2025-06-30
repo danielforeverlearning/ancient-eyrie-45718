@@ -92,15 +92,6 @@ heroku open (route)
 heroku logs --tail
 
 
-https://api.magicthegathering.io/v1/cards?name=%22nicol%20bolas%22
-
-
-******** this was node-js-getting-started ***********
-******** which shows example of express *************
-******** and changed it to use mtgo 3rd party api call ***********
-https://lit-ocean-88340.herokuapp.com
-https://git.heroku.com/lit-ocean-88340.git
-
 
 ******** simple custom module datetime example *********
 https://fast-headland-54688.herokuapp.com
@@ -110,6 +101,22 @@ https://git.heroku.com/fast-headland-54688.git
 ******** example form and upload file and opening file and reading file *****
 https://stark-ridge-73380.herokuapp.com/
 https://git.heroku.com/stark-ridge-73380.git
+
+
+https://api.magicthegathering.io/v1/cards?name=%22nicol%20bolas%22
+
+GOT WORKING render.com webservice 6/29/2025 
+environment variable BASE_URL 0.0.0.0
+environment variable TIMES 8
+node index.js
+******** shows example of express.js *************
+******** and changed it to use mtgo 3rd party api call ***********
+node-js-getting-started
+
+
+
+
+
 
 
 
