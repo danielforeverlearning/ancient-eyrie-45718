@@ -112,17 +112,16 @@ https://stark-ridge-73380.herokuapp.com/
 https://git.heroku.com/stark-ridge-73380.git
 
 
+
+GOT WORKING render.com webservice 6/29/2025 environment variable BASE_URL 0.0.0.0
+node index.js
 ********* simple mtgo 3rd-party api call ************
-https://ancient-eyrie-45718.herokuapp.com/
-https://git.heroku.com/ancient-eyrie-45718.git
+ancient-eyrie-45718
 
 
-********* first react app *******************
-https://whispering-eyrie-67862.herokuapp.com/
-https://git.heroku.com/whispering-eyrie-67862.git
 
+GOT WORKING render.com webservice 6/29/2025 environment variable BASE_URL 0.0.0.0
+node index.js
 ******** example form *********************
 agile-garden-92262
-
-
 
